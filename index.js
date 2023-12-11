@@ -52,3 +52,21 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+
+const express = require("express");
+
+let app = express();
+
+let path = require("path");
+
+const port = process.env.PORT || 3003;
+
+const users = [{ username: 'admin', password: 'adminpassword'}];
+
+app.set("view engine", "ejs")
+
+app.use(express.urlencoded({extended: true}));
+
+app.use('/js', express.static(path.join(__dirname, 'views/js')));
+
