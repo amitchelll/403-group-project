@@ -40,8 +40,8 @@ app.get("/", (req, res) => {
     res.render(path.join(__dirname + "/views/index.ejs"));
 });
 
-app.get("/donate", (req, res) => {
-    res.render(path.join(__dirname + "/views/donate.ejs"));
+app.get("/donateEdit", (req, res) => {
+    res.render(path.join(__dirname + "/views/donateEdit.ejs"));
 });
 
 app.get("/createAccount", (req, res) => {
@@ -52,8 +52,42 @@ app.get("/login", (req, res) => {
     res.render(path.join(__dirname + "/views/login.ejs"));
 });
 
+app.get("/donateFind", (req, res) => {
+    res.render(path.join(__dirname + "/views/donateFind.ejs"));
+});
+
+app.get("/findRecord", (req, res) => {
+    res.render("findRecord");
+}); 
+
 app.get("/browse", (req, res) => {
     res.render(path.join(__dirname + "/views/browse.ejs"));
+});
+
+app.get("/browse", (req, res) => {
+    knex.select().from('items').then(items => {
+        res.render("displayBrowse", {myitems: items});
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({err});
+    });
+});
+
+app.post("/storeDonation", (req, res) => {
+    const itemsData = {
+        category: req.body.type,
+        itemDescription: req.body.age,
+        type: req.body.gender,
+    };
+    knex("items")
+        .insert(itemsData)
+        .then(() => {
+            res.redirect("/browse");           
+        })
+        .catch((error) => {
+            console.error(error);
+            res.status(500).send("Error storing survey data");
+        });
 });
 
 app.listen(port, () => console.log("Website started"));
