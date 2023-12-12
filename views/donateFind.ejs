@@ -124,88 +124,84 @@
             </div>
           </div>
         </nav>
-        <section class="page-section cta">
-          <div class="container">
-            <div class="row">
-              <h2 class="section-heading mb-5">
-                <span class="section-heading-upper">City of Provo</span>
-                <span class="section-heading-lower"
-                  >Social Media + Mental Health Survey</span
-                >
-              </h2>
-              <div class="col-xl-9 mx-auto">
-                <div class="cta-inner bg-faded text-center rounded">
-                  <div id="progress-bar-container">
-                    <div id="progress-bar">
-                      <div id="progress-bar-fill"></div>
-                    </div>
+    <!-- Search Bar -->
+    <section class="py-3">
+      <div class="container px-4 px-lg-5">
+        <form action="/search" method="get" class="mb-3">
+          <div class="row gx-4 gx-lg-5">
+            <div class="col-md-4 mb-2">
+              <input
+                type="text"
+                class="form-control"
+                name="type"
+                placeholder="Search by Type"
+              />
+            </div>
+            <div class="col-md-4 mb-2">
+              <input
+                type="text"
+                class="form-control"
+                name="category"
+                placeholder="Search by Category"
+              />
+            </div>
+            <div class="col-md-4 mb-2">
+              <input
+                type="text"
+                class="form-control"
+                name="description"
+                placeholder="Search by Description"
+              />
+            </div>
+            <div class="col-md-4">
+              <button type="submit" class="btn btn-dark">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- Section -->
+    <section class="py-5">
+      <div class="container px-4 px-lg-5 mt-5">
+        <div
+          class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+        >
+          <% for (let i = 0; i < items.length; i++) { %>
+            <!-- Modify the following structure as needed -->
+            <div class="col mb-5">
+              <div class="card h-100">
+                <!-- Product image -->
+                <img class="card-img-top" src="<%= items[i].image %>" alt="Product Image" />
+                <!-- Product details -->
+                <div class="card-body p-4">
+                  <div class="text-center">
+                    <!-- Product name -->
+                    <h5 class="fw-bolder"><%= items[i].name %></h5>
+                    <!-- Product price -->
+                    <%= items[i].price %>
                   </div>
-
-                  <form action="/storeDonation" method="POST" class="formstuff">
-                    <div class="question-container" id="question1">
-                      <legend>Donation</legend>
-                      <label class="section-heading-upper" for="category"
-                        >Category:</label
-                      >
-                      <br />
-                      <select id="category" name="category">
-                        <option value="" selected disabled>
-                          Select an option
-                        </option>
-                        <option value="Shoes">Shoes</option>
-                        <option value="Clothes">Clothes</option>
-                        <option value="Toys">Toys</option>
-                        <option value="Blankets">Blankets</option>
-                        <option value="Other">Other</option></select
-                      ><br /><br />
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-xl"
-                        onclick="nextQuestion()"
-                      >
-                        Next
-                      </button>
-                    </div>
-                    <div class="question-container" id="question2">
-                      <legend>Donation</legend>
-                      <label class="section-heading-upper" for="itemDescription"
-                        >Description:
-                      </label>
-                      <input
-                        type="text"
-                        id="itemDescription"
-                        name="itemDescription"
-                        placeholder="Enter text here"
-                      />
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-xl"
-                        onclick="nextQuestion()"
-                      >
-                        Next
-                      </button>
-                    </div>
-                    <div class="question-container" id="question3">
-                      <legend>Donation</legend>
-                      <label for="type">Type:</label>
-                      <br />
-                      <select id="type" name="type">
-                        <option value="" selected disabled>
-                          Select an option
-                        </option>
-                        <option value="ship">Ship items</option>
-                        <option value="dropoff">Drop off items</option></select
-                      ><br /><br />
-                      <button type="submit" class="btn btn-primary btn-xl">
-                        Save
-                      </button>
-                    </div>
-                  </form>
+                </div>
+                <!-- Product actions -->
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                  <div class="text-center">
+                    <a class="btn btn-outline-dark mt-auto" href="<%= products[i].detailsUrl %>">View options</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          <% } %>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- ... (your existing footer content) ... -->
+
+    <!-- Bootstrap core JS -->
+    <!-- ... (your existing script tags) ... -->
+  </body>
+</html>
+
         <footer class="footer text-faded text-center py-5">
           <div class="container">
             <p class="m-0 small">Section 001 Team 8</p>
