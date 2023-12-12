@@ -49,7 +49,7 @@ app.get("/createAccount", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-    res.render(path.join(__dirname + "/views/donate.ejs"));
+    res.render(path.join(__dirname + "/views/login.ejs"));
 });
 
 app.get("/browse", (req, res) => {
