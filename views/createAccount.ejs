@@ -10,6 +10,7 @@
         let lastNameInput = document.getElementById("lastName");
         let usernameInput = document.getElementById("username");
         let passwordInput = document.getElementById("password");
+        let confirmPasswordInput = document.getElementById("confirmPassword");
 
         let firstNameLabel = document.querySelector(
           ".form-outline:nth-child(1) .form-label"
@@ -22,6 +23,9 @@
         );
         let passwordLabel = document.querySelector(
           ".form-outline:nth-child(4) .form-label"
+        );
+        let confirmPasswordLabel = document.querySelector(
+          ".form-outline:nth-child(5) .form-label"
         );
 
         firstNameInput.addEventListener("focus", function () {
@@ -61,6 +65,16 @@
         passwordInput.addEventListener("blur", function () {
           if (passwordInput.value === "") {
             passwordLabel.classList.remove("hidden");
+          }
+        });
+
+        confirmPasswordInput.addEventListener("focus", function () {
+          confirmPasswordLabel.classList.add("hidden");
+        });
+
+        confirmPasswordInput.addEventListener("blur", function () {
+          if (confirmPasswordInput.value === "") {
+            confirmPasswordLabel.classList.remove("hidden");
           }
         });
       });
@@ -107,7 +121,7 @@
           >Username</label
         >
         <input
-          type="username"
+          type="text"
           id="username"
           name="username"
           class="form-control"
@@ -130,13 +144,13 @@
       </div>
       <!-- confirm password -->
       <div class="form-outline">
-        <label class="form-label email-label input-font" for="password"
+        <label class="form-label email-label input-font" for="confirmPassword"
           >Confirm Password</label
         >
         <input
           type="password"
-          id="password2"
-          name="password2"
+          id="confirmPassword"
+          name="confirmPassword"
           class="form-control"
           required
         />
