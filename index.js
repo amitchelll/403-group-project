@@ -111,5 +111,43 @@ app.get("/browse", (req, res) => {
     res.render(path.join(__dirname + "/views/browse.ejs"));
 });
 
+app.post("/login", (req, res) => {
+        const {username, password } = req.body
 
+    const user = users.find(u => u.username === username && u.password === password);
+
+    console.log('gah', user);
+    //NEED TO ADD BROWSE PAGE HERE
+    if (user) {
+            // knex.select('//items columns here')
+            .from('items')
+            .then(items => {console.log('Data fetched successfully:', items[0])
+
+        res.render('browse', {myitems: items})
+        })
+        .catch(error => {
+            console.error('error fetching data:', error);
+            res.status(500).send('Internal Server Error')
+        });
+        } else {
+            res.render('login', {error: 'Invalid username or password'});
+        }
+});
+
+app.post('/createAccount', (req, res) => {
+    const { username, password} = req.body
+    //check if the username already exists
+    const existingUser = users.find(login => login.username === username)
+
+    if (existingUser) {
+        res.render('createAccount', {successMessage : null, error: 'Username already exists. Please choose another username.'});
+    } else {
+        users.push({username, password})
+        setTimeout(() => {
+            res.render('createAccount', {successMessage: 'Account created successfully!', error:null})
+
+        }, 1000)
+    }
+    
+})
 
