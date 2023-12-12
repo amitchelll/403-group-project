@@ -68,5 +68,30 @@ app.set("view engine", "ejs")
 
 app.use(express.urlencoded({extended: true}));
 
-app.use('/js', express.static(path.join(__dirname, 'views/js')));
+app.use('/css', express.static(path.join(__dirname, 'views/css')));
+
+// app.use('/js', express.static(path.join(__dirname, 'views/js')));
+
+// app.use('/img', express.static(path.join(__dirname, 'views/img')));
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Internal Server Error');
+});
+
+const knex = require("knex")({ // this is the database
+        client: "pg",
+        connection: {
+            host: process.env.RDS_HOSTNAME || "", 
+            user: process.env.RDS_USERNAME || "postgres",
+            password: process.env.RDS_PASSWORD || "password",
+            database: process.env.RDS_DB_NAME || "postgres",
+            port: process.env.RDS_PORT || 5432,
+            // ssl: process.env.DB_SSL ? {rejectUnauthorized: false} : false
+        }
+    })
+
+    app.get("/", (req, res) => {
+        res.render(path.join(__dirname + "/views/index.ejs"));
+    });
 
