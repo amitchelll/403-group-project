@@ -75,9 +75,9 @@ app.get("/browse", (req, res) => {
 
 app.post("/storeDonation", (req, res) => {
     const itemsData = {
-        category: req.body.type,
-        itemDescription: req.body.age,
-        type: req.body.gender,
+        category: req.body.category,
+        itemDescription: req.body.itemDescription,
+        type: req.body.type,
     };
     knex("items")
         .insert(itemsData)
@@ -88,6 +88,16 @@ app.post("/storeDonation", (req, res) => {
             console.error(error);
             res.status(500).send("Error storing survey data");
         });
+});
+
+app.post("/editDonation", (req, res) => {
+    knex("items").where("itemID", parseInt(req.body.itemID)).update({
+        type: req.body.type,
+        category: req.body.category,
+        itemDescription: req.body.itemDescription,
+    }).then(mybands => {
+        res.redirect("/");
+    });    
 });
 
 app.listen(port, () => console.log("Website started"));
