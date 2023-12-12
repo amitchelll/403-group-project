@@ -17,7 +17,7 @@ app.use('/css', express.static(path.join(__dirname, 'views/css')));
 
 // app.use('/js', express.static(path.join(__dirname, 'views/js')));
 
-// app.use('/img', express.static(path.join(__dirname, 'views/img')));
+app.use('/img', express.static(path.join(__dirname, 'views/img')));
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
