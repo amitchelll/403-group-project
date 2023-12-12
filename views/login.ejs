@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/css/login.css"/>
+    <title>Login to be able to donate!</title>
+    <script>
+      // JavaScript to handle label disappearance
+      document.addEventListener("DOMContentLoaded", function () {
+        let usernameInput = document.getElementById("username");
+        let passwordInput = document.getElementById("password");
+        
+        let usernameLabel = document.querySelector(".username-label");
+        let passwordLabel = document.querySelector(".password-label");
+
+        usernameInput.addEventListener("focus", function () {
+          usernameLabel.classList.add("hidden");
+        });
+
+        usernameInput.addEventListener("blur", function () {
+          if (usernameInput.value === "") {
+            usernameLabel.classList.remove("hidden");
+          }
+        });
+
+        passwordInput.addEventListener("focus", function () {
+          passwordLabel.classList.add("hidden");
+        });
+
+        passwordInput.addEventListener("blur", function () {
+          if (passwordInput.value === "") {
+            passwordLabel.classList.remove("hidden");
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="content">
+        <!-- Text Above Form -->
+        <div class="above-form-text">
+          <p>Log in to be able to donate!</p>
+        </div>
+
+    <form action="/login" method="POST">
+      <!-- Username input -->
+      <div class="form-outline">
+        <label class="form-label username-label input-font" for="username">Email</label>
+        <input type="username" id="username" name='username' class="form-control" />
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline">
+        <label class="form-label password-label input-font" for="password">Password</label>
+        <input type="password" id="password" name='password' class="form-control" />
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn-primary">Sign in</button>
+
+      <!-- Register buttons -->
+      <div class="text-center-container">
+        <p class="text-center">Don't have an account?</p>
+        <a href="/createAccount" class="register-link">Create one</a>
+      </div>
+    </form>
+  </body>
+</html>
