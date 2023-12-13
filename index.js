@@ -52,9 +52,9 @@ app.get("/", (req, res) => {
     res.render(path.join(__dirname + "/views/index.ejs"));
 });
 
-app.get("/claim", (req, res) => {
-    res.render(path.join(__dirname + "/views/claim.ejs"));
-});
+// app.get("/claim", (req, res) => {
+//     res.render(path.join(__dirname + "/views/claim.ejs"));
+// });
 
 
 app.get("/donateEdit", (req, res) => {
@@ -103,6 +103,12 @@ app.post("/login", (req, res) => {
 app.get("/donateFind", (req, res) => {
     knex.select().from('items').then(items => {
     res.render(path.join(__dirname + "/views/donateFind.ejs"), {myitems: items})
+})
+});
+
+app.get("/claim", (req, res) => {
+    knex.select().from('items').then(items => {
+    res.render(path.join(__dirname + "/views/claim.ejs"), {myitems: items})
 })
 });
 
