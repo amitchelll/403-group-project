@@ -113,14 +113,14 @@ app.get("/browse", (req, res) => {
 })
 });
 
-app.get("/browse", (req, res) => {
-    knex.select().from('items').then(items => {
-        res.render("browse", {myitems: items});
-    }).catch(err => {
-        console.log(err);
-        res.status(500).json({err});
-    });
-});
+// app.get("/browse", (req, res) => {
+//     knex.select().from('items').then(items => {
+//         res.render("browse", {myitems: items});
+//     }).catch(err => {
+//         console.log(err);
+//         res.status(500).json({err});
+//     });
+// });
 
 app.post("/donateAdd", (req, res)=> {
     knex("items").insert({
