@@ -160,13 +160,13 @@ app.get("/claim", (req, res) => {
 });
 
 app.get("/claimDelete", (req,res) => {
-    const claimedItem = myitems[iCount]
     knex("items").where("item_id",req.params.id).del().then( myitems => {
         res.redirect("/donateFind", {myitems: items});
      }).catch( err => {
         console.log(err);
         res.status(500).json({err});
      });
+    const claimedItem = myitems[iCount]
 });
 
 
