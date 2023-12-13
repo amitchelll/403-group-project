@@ -77,21 +77,6 @@ app.post("/login", (req, res) => {
     console.log('gah', user);
 
     res.render('donateAdd')
-
-// if (user) {
-//         knex.select('item_title', 'description', 'category', 'quantity')
-//         .from('items')
-//         .then(items => {console.log('Data fetched successfully:', items[0])
-
-//     res.render('donate', {myitems: items})
-//     })
-//     .catch(error => {
-//         console.error('error fetching data:', error);
-//         res.status(500).send('Internal Server Error')
-//     });
-//     } else {
-//         res.render('login', {error: 'Invalid username or password'});
-//     }
 });
 
 app.get("/donateFind", (req, res) => {
