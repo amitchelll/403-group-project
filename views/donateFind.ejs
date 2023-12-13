@@ -61,12 +61,6 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/css/styles.css" rel="stylesheet" />
         <link href="/css/myStyles.css" rel="stylesheet" />
-
-        <style>
-          .question-container {
-            display: none;
-          }
-        </style>
       </head>
       <body>
     <!-- Search Bar -->
@@ -82,116 +76,6 @@
                 placeholder="Search by Type"
               />
             </div>
-            <div class="col-md-4 mb-2">
-              <input
-                type="text"
-                class="form-control"
-                name="category"
-                placeholder="Search by Category"
-              />
-            </div>
-            <div class="col-md-4 mb-2">
-              <input
-                type="text"
-                class="form-control"
-                name="description"
-                placeholder="Search by Description"
-              />
-            </div>
-            <div class="col-md-4">
-              <button type="submit" class="btn btn-dark">Search</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </section>
-    <!-- Section -->
-    <section class="py-5">
-      <% for (let i=0; i < myitems.length; i++) { %>
-        <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
-              <div
-                class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <div class="col mb-5">
-                  <div class="card h-100">
-                    <!-- Product image-->
-                    <img class="card-img-top" src="img/baby<%= myitems[i].category %>.jpg"/>
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                      <div class="text-center">
-                        <!-- Product name-->
-                        <h5 class="fw-bolder">Item: <% myitems[i].item_title %></h5>
-                        <!-- Product size-->
-                        <p>Description: <% myitems[i].description %></p>
-                        <!-- Product quantity-->
-                        <p>Quantity: <% myitems[i].quantity %></p>
-                        <!-- Product category-->
-                        <p>Category: <% myitems[i].category %></p>
-                      </div>
-                    </div>
-                    <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                      <div class="text-center">
-                        <a class="btn btn-outline-dark mt-auto" href="#">Claim</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <% } %>
-        </section>
-
-    <!-- Footer -->
-    <!-- ... (your existing footer content) ... -->
-
-    <!-- Bootstrap core JS -->
-    <!-- ... (your existing script tags) ... -->
-  </body>
-</html>
-
-        <footer class="footer text-faded text-center py-5">
-          <div class="container">
-            <p class="m-0 small">Section 001 Team 8</p>
-          </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script>
-          let currentQuestion = 1;
-
-          function showQuestion(questionNumber) {
-            const questionContainers = document.querySelectorAll(
-              ".question-container"
-            );
-
-            questionContainers.forEach((container) => {
-              container.style.display = "none";
-            });
-
-            const currentQuestionContainer = document.getElementById(
-              `question${questionNumber}`
-            );
-
-            if (currentQuestionContainer) {
-              currentQuestionContainer.style.display = "block";
-            }
-
-            // Update progress bar
-            const progressBarFill =
-              document.getElementById("progress-bar-fill");
-            const progressPercentage =
-              ((questionNumber - 1) / questionContainers.length) * 100;
-            progressBarFill.style.width = `${progressPercentage}%`;
-          }
-
-          function nextQuestion() {
-            currentQuestion++;
-            showQuestion(currentQuestion);
-          }
-
-          // Show the first question when the page loads
-          showQuestion(currentQuestion);
-        </script>
-        <!-- </form> -->
       </body>
     </html>
   </body>
