@@ -92,7 +92,9 @@ app.post("/login", (req, res) => {
 });
 
 app.get("/donateFind", (req, res) => {
-    res.render(path.join(__dirname + "/views/donateFind.ejs"));
+    knex.select().from('items').then(items => {
+    res.render(path.join(__dirname + "/views/donateFind.ejs"), {myitems: items})
+})
 });
 
 app.get("/browse", (req, res) => {
