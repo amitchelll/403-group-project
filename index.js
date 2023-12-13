@@ -46,10 +46,7 @@ const knex = require("knex")({
         database: "practice",
         port: 5432
     }
-})
-
-
-
+});
 
 app.get("/", (req, res) => {
     res.render(path.join(__dirname + "/views/index.ejs"));
@@ -97,10 +94,6 @@ app.post("/login", (req, res) => {
 app.get("/donateFind", (req, res) => {
     res.render(path.join(__dirname + "/views/donateFind.ejs"));
 });
-
-app.get("/findRecord", (req, res) => {
-    res.render("findRecord");
-}); 
 
 app.get("/browse", (req, res) => {
     res.render(path.join(__dirname + "/views/browse.ejs"));
@@ -165,12 +158,12 @@ app.get("/claim", (req, res) => {
 app.post("/claimDelete/:id", (req,res) => {
     const claimedItem = myitems[iCount]
     knex("items").where("item_id",req.params.id).del().then( myitems => {
-        res.redirect("/donateFind");
+        res.redirect("/donateFind", {myitems: items});
      }).catch( err => {
         console.log(err);
         res.status(500).json({err});
      });
-    });
+});
 
 
 app.listen(port, () => console.log("Website started"));
