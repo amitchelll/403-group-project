@@ -18,7 +18,7 @@
     />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
-    <link href="css/mystyles.css" rel="stylesheet"/>
+    <link href="css/mystyles.css" rel="stylesheet" />
   </head>
   <body>
     <!-- Navigation-->
@@ -67,20 +67,27 @@
     </header>
     <!-- Section-->
     <!-- Section-->
-<form action="/claimDelete" method="GET">
-    <section class="py-5">
-      <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-          <% for (let iCount=0; iCount < myitems.length; iCount++) { %>
+    <form action="/claimDelete<%=myitems[iCount].item_id %>" method="POST">
+      <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+          <div
+            class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+          >
+            <% for (let iCount=0; iCount < myitems.length; iCount++) { %>
             <div class="col mb-5">
               <div class="card h-100">
                 <!-- Product image-->
-                <img class="card-img-top" src="img/baby<%= myitems[iCount].category %>.jpg"/>
+                <img
+                  class="card-img-top"
+                  src="img/baby<%= myitems[iCount].category %>.jpg"
+                />
                 <!-- Product details-->
                 <div class="card-body p-4">
                   <div class="text-center">
                     <!-- Product name-->
-                    <h5 class="fw-bolder">Item: <% myitems[iCount].item_title %></h5>
+                    <h5 class="fw-bolder">
+                      Item: <% myitems[iCount].item_title %>
+                    </h5>
                     <!-- Product description-->
                     <p>Quantity: <% myitems[iCount].description %></p>
                     <!-- Product category-->
@@ -97,18 +104,16 @@
                 </div>
               </div>
             </div>
-          <% } %>
+            <% } %>
+          </div>
         </div>
-      </div>
-    </section>
-  </form>
-  
+      </section>
+    </form>
+
     <!-- Footer-->
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">
-          Team 1-8
-        </p>
+        <p class="m-0 text-center text-white">Team 1-8</p>
       </div>
     </footer>
     <!-- Bootstrap core JS-->
