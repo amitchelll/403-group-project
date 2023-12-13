@@ -156,8 +156,13 @@ app.get("/donateEdit/:id", (req, res)=> {
 });
 
 app.get("/claim", (req, res) => {
-    res.render(path.join(__dirname + "/views/claim.ejs"));
-});
+    knex("items").where("item_id",req.params.id).del().then( myitems => {
+        res.redirect("/claim");
+     }).catch( err => {
+        console.log(err);
+        res.status(500).json({err});
+     });
+    });
 
 app.get("/claimDelete", (req,res) => {
     knex("items").where("item_id",req.params.id).del().then( myitems => {
