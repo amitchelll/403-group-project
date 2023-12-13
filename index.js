@@ -172,7 +172,7 @@ app.get("/donateEdit/:id", (req, res)=> {
 
 app.post("/claimDelete/:id", (req, res) => {
     knex("items").where("item_id",req.params.id).del().then( myitems => {
-      res.redirect("/donateFind");
+      res.redirect("/claim");
    }).catch( err => {
       console.log(err);
       res.status(500).json({err});
