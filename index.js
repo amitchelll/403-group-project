@@ -52,11 +52,6 @@ app.get("/", (req, res) => {
     res.render(path.join(__dirname + "/views/index.ejs"));
 });
 
-// app.get("/claim", (req, res) => {
-//     res.render(path.join(__dirname + "/views/claim.ejs"));
-// });
-
-
 app.get("/donateEdit", (req, res) => {
     res.render(path.join(__dirname + "/views/donateEdit.ejs"));
 });
