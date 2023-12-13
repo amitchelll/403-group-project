@@ -118,17 +118,8 @@ app.post("/donateAdd", (req, res) => {
         });
 });
 
-app.post("/editDonation", (req, res) => {
-    knex("items").where("itemID", parseInt(req.body.itemID)).update({
-        type: req.body.type,
-        category: req.body.category,
-        itemDescription: req.body.itemDescription,
-    }).then(mybands => {
-        res.redirect("/");
-    });    
-});
 
-app.get("/editCountry/:id", (req, res)=> {
+app.get("/donateEdit/:id", (req, res)=> {
     knex.select("country_id",
           "country_name",
           "popular_site",
