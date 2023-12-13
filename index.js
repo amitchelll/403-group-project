@@ -147,6 +147,16 @@ app.get("/donateEdit/:id", (req, res)=> {
    })
  });
 
+ app.post("/deleteCountry/:id", (req, res) => {
+    knex("country").where("country_id",req.params.id).del().then( mycountry => {
+      res.redirect("/");
+   }).catch( err => {
+      console.log(err);
+      res.status(500).json({err});
+   });
+
+});
+
 app.listen(port, () => console.log("Website started"));
 
 
