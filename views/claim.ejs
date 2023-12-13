@@ -19,7 +19,6 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/mystyles.css" rel="stylesheet" />
-
   </head>
   <body>
     <!-- Navigation-->
@@ -57,23 +56,25 @@
     </nav>
     <!-- Header-->
     <header class="bg-yellow py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-black">
-                <h1 class="display-4 fw-bolder">Thank You for Claiming!</h1>
-                <p class="lead fw-normal text-black-50 mb-0">
-                </p><br>
-            </div>
+      <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-black">
+          <h1 class="display-4 fw-bolder">Thank You for Claiming!</h1>
+          <p class="lead fw-normal text-black-50 mb-0"></p>
+          <br />
         </div>
+      </div>
     </header>
-    
-    <form action="/donateDelete" method="POST"></form>
-    
+
+    <form
+      action="/claimDelete/<%= myitems[iCount].item_id %>/<%= iCount %>"
+      method="post"
+    >
+      <button type="submit">Claim</button>
+    </form>
     <!-- Footer-->
     <footer class="py-5 bg-warning">
       <div class="container">
-        <p class="m-0 text-center text-white">
-          Team 1-8
-        </p>
+        <p class="m-0 text-center text-white">Team 1-8</p>
       </div>
     </footer>
     <!-- Bootstrap core JS-->
