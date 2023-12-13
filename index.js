@@ -100,24 +100,16 @@ app.get("/browse", (req, res) => {
     });
 });
 
-app.post("/donateAdd", (req, res) => {
-    const itemsData = {
-        item_title: req.body.item_title,
-        description: req.body.description,
-        category: req.body.category,
-        quantity: req.body.quantity
-    };
-    knex("items")
-        .insert(itemsData)
-        .then(() => {
-            res.redirect("/browse");           
-        })
-        .catch((error) => {
-            console.error(error);
-            res.status(500).send("Error storing survey data");
-        });
-});
-
+app.post("/donateAdd", (req, res)=> {
+    knex("items").insert({
+      item_title: req.body.item_title,
+      description: req.body.description,
+      quantity: req.body.quantity,
+      category: req.body.category,
+   }).then(myitems => {
+      res.redirect("/");
+   })
+ });
 
 app.get("/donateEdit/:id", (req, res)=> {
     knex.select("item_title",
