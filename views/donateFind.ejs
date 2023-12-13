@@ -20,21 +20,23 @@
         />
 <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-        
+        <link href="css/mystyles.css" rel="stylesheet" />
       </head>
     <!-- Search Bar -->
     <section class="py-3">
       <div class="container px-4 px-lg-5">
-        <form action="/search" method="get" class="mb-3">
           <div class="row gx-4 gx-lg-5">
             <div class="col-md-4 mb-2">
+              <label for="searchInput">Search:</label>
               <input
                 type="text"
-                class="form-control"
-                name="type"
-                placeholder="Search by Type"
+                id="searchInput"
+                name="search"
+                placeholder="Search by survey ID"
+                onkeyup="searchTable()"
               />
             </div>
+            </form>
             <body>
               <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container px-4 px-lg-5">
@@ -68,10 +70,10 @@
                   </div>
                 </div>
               </nav>
-              <label><b>Donation Information:</b></label>
+              <label><b>Country Information:</b></label>
               <br><br>
               <table style="width: 100%; background-color: antiquewhite; border: 1px solid black;">
-                <thead style="background-color: #ffc107; color: white;">
+                <thead style="background-color: cornflowerblue; color: white;">
                   <tr>
                     <th style="text-align: left;">Item Name</th>
                     <th style="text-align: left;">Category</th>
@@ -96,15 +98,39 @@
                       <td style="text-align: center;">
                         <form action="/donateDelete/<%= myitems[iCount].item_id %>" method="POST">
                           <button type="submit">Delete</button>
-                        </form>
+                        </form>x
                       </td>
                     </tr>
                  <% } %>
                 </tbody>
               </table>
               <br><br>
-              <a class="btn btn-outline-dark mt-auto" href="/donateAdd">Add Item</a>
-           </body>
+              <form action="/donateAdd" method="GET">
+                <button type="submit">Add Item</button>
+              </form>
+           <script>
+            function searchTable() {
+              let input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("searchInput");
+              filter = input.value.trim(); // Trim any whitespace
+      
+              table = document.getElementById("surveyTable");
+              tr = table.getElementsByTagName("tr");
+      
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0]; // Change the index if your survey ID is in a different column
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.trim() === filter) {
+                    // Check for exact match
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }
+              }
+            }
+          </script>
       </body>
     </html>
   </body>
