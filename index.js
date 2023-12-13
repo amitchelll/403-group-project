@@ -53,8 +53,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/donateEdit", (req, res) => {
-    res.render(path.join(__dirname + "/views/donateEdit.ejs"));
-});
+    knex.select().from('items').then(items => {
+        res.render(path.join(__dirname + "/views/donateEdit.ejs"), {myitems: items})
+    })
+    });
+
 
 app.get("/createAccount", (req, res) => {
     res.render(path.join(__dirname + "/views/createAccount.ejs"));
