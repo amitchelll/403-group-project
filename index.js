@@ -155,7 +155,7 @@ app.get("/claim", (req, res) => {
     res.render(path.join(__dirname + "/views/claim.ejs"));
 });
 
-app.post("/claimDelete/:id", (req,res) => {
+app.post("/claimDelete/:id/:iCount", (req,res) => {
     const claimedItem = myitems[iCount]
     knex("items").where("item_id",req.params.id).del().then( myitems => {
         res.redirect("/donateFind", {myitems: items});
