@@ -147,10 +147,10 @@ app.get("/donateEdit/:id", (req, res)=> {
 
  app.post("/donateEdit", (req, res)=> {
     knex("items").where("item_id", parseInt(req.body.item_id)).update({
-      item_title: req.body.item_title.toUpperCase(),
-      description: req.body.description.toUpperCase(),
-      quantity: req.body.quantity.toUpperCase(),
-      category: req.body.category,}).then(myitems => {
+      item_title: req.body.item_title,
+      description: req.body.description,
+      quantity: req.body.quantity,
+      category: req.body.category}).then(myitems => {
       res.redirect("/donateFind");
    })
  });
