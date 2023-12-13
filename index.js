@@ -101,7 +101,7 @@ app.get("/browse", (req, res) => {
 
 app.get("/browse", (req, res) => {
     knex.select().from('items').then(items => {
-        res.render("displayBrowse", {myitems: items});
+        res.render("browse", {myitems: items});
     }).catch(err => {
         console.log(err);
         res.status(500).json({err});
