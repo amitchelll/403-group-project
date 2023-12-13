@@ -81,6 +81,10 @@ app.get("/login", (req, res) => {
     res.render(path.join(__dirname + "/views/login.ejs"));
 });
 
+app.get("/donateAdd", (req, res) => {
+    res.render(path.join(__dirname + "/views/donateAdd.ejs"));
+});
+
 app.post("/login", (req, res) => {
     const {username, password } = req.body
 
