@@ -164,7 +164,7 @@ app.get("/claim", (req, res) => {
      });
     });
 
-app.get("/claimDelete", (req,res) => {
+app.get("/claimDelete/:id", (req,res) => {
     knex("items").where("item_id",req.params.id).del().then( myitems => {
         res.redirect("/donateFind", {myitems: items});
      }).catch( err => {
