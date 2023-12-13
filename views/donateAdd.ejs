@@ -27,10 +27,7 @@
               <a class="nav-link" href="/browse">Browse</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/donateUpdate">Donate</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/donateEdit">Edit Donation</a>
+              <a class="nav-link" href="/login">Donate</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/login">Login</a>
@@ -73,66 +70,7 @@
         </style>
       </head>
       <body>
-        <!-- <form action="/surveyInput" method="GET"> -->
 
-        <header>
-          <h1 class="site-heading text-center text-faded d-none d-lg-block">
-            <span class="site-heading-upper text-primary mb-3"
-              >City of Provo</span
-            >
-            <span class="site-heading-lower">Mental Health</span>
-          </h1>
-        </header>
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-          <div class="container">
-            <a
-              class="navbar-brand text-uppercase fw-bold d-lg-none"
-              href="index.ejs"
-              >City of Provo</a
-            >
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mx-auto">
-                <li class="nav-item px-lg-4">
-                  <a class="nav-link text-uppercase" href="/">Home</a>
-                </li>
-                <li class="nav-item px-lg-4">
-                  <a class="nav-link text-uppercase" href="/surveyInput"
-                    >Survey</a
-                  >
-                </li>
-                <li class="nav-item px-lg-4">
-                  <a class="nav-link text-uppercase" href="/resources"
-                    >Resources</a
-                  >
-                </li>
-                <li class="nav-item px-lg-4">
-                  <a class="nav-link text-uppercase" href="/login">Login</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <section class="page-section cta">
-          <div class="container">
-            <div class="row">
-              <h2 class="section-heading mb-5">
-                <span class="section-heading-upper">City of Provo</span>
-                <span class="section-heading-lower"
-                  >Social Media + Mental Health Survey</span
-                >
-              </h2>
               <div class="col-xl-9 mx-auto">
                 <div class="cta-inner bg-faded text-center rounded">
                   <div id="progress-bar-container">
@@ -141,7 +79,7 @@
                     </div>
                   </div>
 
-                  <form action="/storeDonation" method="POST" class="formstuff">
+                  <form action="/donateAdd" method="POST">
                     <div class="question-container" id="question1">
                       <legend>Donation</legend>
                       <label class="section-heading-upper" for="category"
@@ -169,12 +107,12 @@
                     <div class="question-container" id="question2">
                       <legend>Donation</legend>
                       <label class="section-heading-upper" for="itemDescription"
-                        >Description:
+                        >Give your donation a title:
                       </label>
                       <input
                         type="text"
-                        id="itemDescription"
-                        name="itemDescription"
+                        id="item_title"
+                        name="item_title"
                         placeholder="Enter text here"
                       />
                       <button
@@ -187,15 +125,28 @@
                     </div>
                     <div class="question-container" id="question3">
                       <legend>Donation</legend>
-                      <label for="type">Type:</label>
+                      <label class="section-heading-upper" for="description"
+                        >Description:
+                      </label>
+                      <input
+                        type="text"
+                        id="description"
+                        name="description"
+                        placeholder="Enter text here"
+                      />
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-xl"
+                        onclick="nextQuestion()"
+                      >
+                        Next
+                      </button>
+                    </div>
+                    <div class="question-container" id="question4">
+                      <legend>Donation</legend>
+                      <label for="quantity">Quantity:</label>
                       <br />
-                      <select id="type" name="type">
-                        <option value="" selected disabled>
-                          Select an option
-                        </option>
-                        <option value="ship">Ship items</option>
-                        <option value="dropoff">Drop off items</option></select
-                      ><br /><br />
+                      <input type="number" id="quantity" name="quantity">
                       <button type="submit" class="btn btn-primary btn-xl">
                         Save
                       </button>

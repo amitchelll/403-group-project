@@ -48,8 +48,50 @@ app.get("/createAccount", (req, res) => {
     res.render(path.join(__dirname + "/views/createAccount.ejs"));
 });
 
+app.post('/createAccount', (req, res) => {
+    const { username, password } = req.body
+    //check if the username already exists
+    const existingUser = users.find(login => login.username === username)
+
+    if (existingUser) {
+        res.render('login', {successMessage : null, error: 'Username already exists. Please choose another username.'});
+    } else {
+        users.push({username, password})
+        setTimeout(() => {
+            res.render('login', {successMessage: 'Account created successfully!', error:null})
+
+        }, 1000)
+    }
+    
+});
+
 app.get("/login", (req, res) => {
     res.render(path.join(__dirname + "/views/login.ejs"));
+});
+
+app.post("/login", (req, res) => {
+    const {username, password } = req.body
+
+    const user = users.find(u => u.username === username && u.password === password);
+
+    console.log('gah', user);
+
+    res.render('donateAdd')
+
+// if (user) {
+//         knex.select('item_title', 'description', 'category', 'quantity')
+//         .from('items')
+//         .then(items => {console.log('Data fetched successfully:', items[0])
+
+//     res.render('donate', {myitems: items})
+//     })
+//     .catch(error => {
+//         console.error('error fetching data:', error);
+//         res.status(500).send('Internal Server Error')
+//     });
+//     } else {
+//         res.render('login', {error: 'Invalid username or password'});
+//     }
 });
 
 app.get("/donateFind", (req, res) => {
@@ -73,11 +115,12 @@ app.get("/browse", (req, res) => {
     });
 });
 
-app.post("/storeDonation", (req, res) => {
+app.post("/donateAdd", (req, res) => {
     const itemsData = {
+        item_title: req.body.item_title,
+        description: req.body.description,
         category: req.body.category,
-        itemDescription: req.body.itemDescription,
-        type: req.body.type,
+        quantity: req.body.quantity
     };
     knex("items")
         .insert(itemsData)
