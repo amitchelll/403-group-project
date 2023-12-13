@@ -128,6 +128,34 @@ app.post("/editDonation", (req, res) => {
     });    
 });
 
+app.get("/editCountry/:id", (req, res)=> {
+    knex.select("country_id",
+          "country_name",
+          "popular_site",
+          "capital",
+          "population",
+          "visited",
+          "covid_level").from("country").where("country_id", req.params.id).then(country => {
+    res.render("editCountry", {mycountry: country});
+   }).catch( err => {
+      console.log(err);
+      res.status(500).json({err});
+   });
+});
+
+ app.post("/editCountry", (req, res)=> {
+    knex("country").where("country_id", parseInt(req.body.country_id)).update({
+      country_name: req.body.country_name.toUpperCase(),
+      popular_site: req.body.popular_site.toUpperCase(),
+      capital: req.body.capital.toUpperCase(),
+      population: req.body.population,
+      visited: req.body.visited ? "Y" : "N",
+      covid_level: req.body.covid_level.toUpperCase()
+   }).then(mycountry => {
+      res.redirect("/");
+   })
+ });
+
 app.listen(port, () => console.log("Website started"));
 
 
