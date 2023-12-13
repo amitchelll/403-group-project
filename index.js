@@ -52,6 +52,11 @@ app.get("/", (req, res) => {
     res.render(path.join(__dirname + "/views/index.ejs"));
 });
 
+app.get("/claim", (req, res) => {
+    res.render(path.join(__dirname + "/views/claim.ejs"));
+});
+
+
 app.get("/donateEdit", (req, res) => {
     res.render(path.join(__dirname + "/views/donateEdit.ejs"));
 });
@@ -159,24 +164,17 @@ app.get("/donateEdit/:id", (req, res)=> {
 
 });
 
-app.get("/claim", (req, res) => {
+app.post("/claimDelete/:id", (req, res) => {
     knex("items").where("item_id",req.params.id).del().then( myitems => {
-        res.redirect("/claim");
-     }).catch( err => {
-        console.log(err);
-        res.status(500).json({err});
-     });
-    });
+      res.redirect("/donateFind");
+   }).catch( err => {
+      console.log(err);
+      res.status(500).json({err});
+   });
 
-app.post("/claimDelete/:id", (req,res) => {
-    knex("items").where("item_id",req.params.id).del().then( myitems => {
-        res.redirect("/donateFind", {myitems: items});
-     }).catch( err => {
-        console.log(err);
-        res.status(500).json({err});
-     });
-    const claimedItem = myitems[iCount]
 });
+
+
 
 
 app.listen(port, () => console.log("Website started"));
