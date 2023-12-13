@@ -98,7 +98,9 @@ app.get("/donateFind", (req, res) => {
 });
 
 app.get("/browse", (req, res) => {
-    res.render(path.join(__dirname + "/views/browse.ejs"));
+    knex.select().from('items').then(items => {
+        res.render(path.join(__dirname + "/views/browse.ejs"), {myitems: items})
+})
 });
 
 app.get("/browse", (req, res) => {
