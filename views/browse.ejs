@@ -66,8 +66,9 @@
       </div>
     </header>
     <!-- Section-->
+    <form action="/claimDelete" method="POST">
     <section class="py-5">
-          <% for (let i=0; i < myitems.length; i++) { %>
+          <% for (let iCount=0; i < myitems.length; iCount++) { %>
             <section class="py-5">
                 <div class="container px-4 px-lg-5 mt-5">
                   <div
@@ -75,28 +76,31 @@
                     <div class="col mb-5">
                       <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="img/baby<%= myitems[i].category %>.jpg"/>
+                        <img class="card-img-top" src="img/baby<%= myitems[iCount].category %>.jpg"/>
                         <!-- Product details-->
                         <div class="card-body p-4">
                           <div class="text-center">
                             <!-- Product name-->
-                            <h5 class="fw-bolder">Item: <% myitems[i].itemName %></h5>
-                            <!-- Product size-->
-                            <p>Size: <% myitems[i].size %></p>
+                            <h5 class="fw-bolder">Item: <% myitems[iCount].item_title %></h5>
+                            <!-- Product description-->
+                            <p>Quantity: <% myitems[iCount].description %></p>
+                            <!-- Product category-->
+                            <p>Size: <% myitems[iCount].category %></p>
                             <!-- Product quantity-->
-                            <p>Quantity: <% myitems[i].quantity %></p>
+                            <p>Quantity: <% myitems[iCount].quantity %></p>
                           </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                           <div class="text-center">
-                            <a class="btn btn-outline-dark mt-auto" href="#">Claim</a>
+                            <button type="submit">Claim</button>
                           </div>
                         </div>
                       </div>
                     </div>
                     <% } %>
     </section>
+</form>
     <!-- Footer-->
     <footer class="py-5 bg-dark">
       <div class="container">
