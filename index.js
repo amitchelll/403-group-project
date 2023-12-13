@@ -120,36 +120,30 @@ app.post("/donateAdd", (req, res) => {
 
 
 app.get("/donateEdit/:id", (req, res)=> {
-    knex.select("country_id",
-          "country_name",
-          "popular_site",
-          "capital",
-          "population",
-          "visited",
-          "covid_level").from("country").where("country_id", req.params.id).then(country => {
-    res.render("editCountry", {mycountry: country});
+    knex.select("item_title",
+          "description",
+          "quantity",
+          "category").from("items").where("item_id", req.params.id).then(items => {
+    res.render("donateEdit", {myitems: items});
    }).catch( err => {
       console.log(err);
       res.status(500).json({err});
    });
 });
 
- app.post("/editCountry", (req, res)=> {
-    knex("country").where("country_id", parseInt(req.body.country_id)).update({
-      country_name: req.body.country_name.toUpperCase(),
-      popular_site: req.body.popular_site.toUpperCase(),
-      capital: req.body.capital.toUpperCase(),
-      population: req.body.population,
-      visited: req.body.visited ? "Y" : "N",
-      covid_level: req.body.covid_level.toUpperCase()
-   }).then(mycountry => {
-      res.redirect("/");
+ app.post("/donateEdit", (req, res)=> {
+    knex("items").where("item_id", parseInt(req.body.item_id)).update({
+      item_title: req.body.item_title.toUpperCase(),
+      description: req.body.description.toUpperCase(),
+      quantity: req.body.quantity.toUpperCase(),
+      category: req.body.category,}).then(myitems => {
+      res.redirect("/donateFind");
    })
  });
 
- app.post("/deleteCountry/:id", (req, res) => {
-    knex("country").where("country_id",req.params.id).del().then( mycountry => {
-      res.redirect("/");
+ app.post("/donateDelete/:id", (req, res) => {
+    knex("items").where("item_id",req.params.id).del().then( myitems => {
+      res.redirect("/donateFind");
    }).catch( err => {
       console.log(err);
       res.status(500).json({err});
