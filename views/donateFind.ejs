@@ -72,7 +72,7 @@
               </nav>
               <label><b>Country Information:</b></label>
               <br><br>
-              <table style="width: 100%; background-color: antiquewhite; border: 1px solid black;">
+              <table style="width: 100%; background-color: antiquewhite; border: 1px solid black;" name="donateinfo">
                 <thead style="background-color: cornflowerblue; color: white;">
                   <tr>
                     <th style="text-align: left;">Item Name</th>
@@ -114,7 +114,7 @@
               input = document.getElementById("searchInput");
               filter = input.value.trim(); // Trim any whitespace
       
-              table = document.getElementById("surveyTable");
+              table = document.getElementById("donateinfo");
               tr = table.getElementsByTagName("tr");
       
               for (i = 0; i < tr.length; i++) {
