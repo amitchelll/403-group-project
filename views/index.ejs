@@ -94,8 +94,8 @@
         aria-expanded="false"
         aria-controls="weeWearStory"
       >
-        Read Our Story
-      </button>
+        Read Our Story</button
+      ><br />
       <div class="collapse mt-3" id="weeWearStory">
         <p>
           In the heart of a small town, where compassion and community spirit
@@ -145,23 +145,7 @@
         <section class="py-5" id="missionValues">
           <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5">
-              <div class="col-md-6 mb-4">
-                <button onclick="showDescription('Integrity')">
-                  Integrity
-                </button>
-                <button onclick="showDescription('Service')">Service</button>
-                <button onclick="showDescription('Collaboration')">
-                  Collaboration
-                </button>
-                <button onclick="showDescription('Innovation')">
-                  Innovation
-                </button>
-                <button onclick="showDescription('Compassion')">
-                  Compassion
-                </button>
-                <button onclick="showDescription('Community')">
-                  Community
-                </button>
+              <p>At Wee Wear, we are committed to empowering families and nurturing communities by providing essential baby items at no cost. Inspired by the values instilled in us through our education at BYU Marriott School, we strive to promote compassion, collaboration, and a sense of community. Our mission is to create a positive impact on the lives of families in need, fostering a culture of service and support.</p>
               </div>
               <div class="col-md-6 mb-4">
                 <!-- Placeholder for the description -->
@@ -177,7 +161,12 @@
     <section class="py-5 bg-warning">
       <div class="container">
         <h2 class="text-center text-white">Where are we located?</h2>
-        <p></p>
+        <img
+          style="display: block; margin: 0 auto"
+          width="850px"
+          height="600px"
+          src="img/MapChart_Map-1.png"
+        />
         <!-- Add interactive tableau map with the states we are located in  -->
       </div>
     </section>
@@ -192,26 +181,7 @@
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     >
-      function showDescription(value) {
-          // Get the placeholder element
-          var descriptionPlaceholder = document.getElementById('descriptionPlaceholder');
-
-          // Clear previous content
-          descriptionPlaceholder.innerHTML = '';
-
-          // Define descriptions for each value
-          var descriptions = {
-              Integrity: "We uphold the highest standards of honesty, transparency, and ethical conduct, reflecting the principles taught in the Marriott School program at BYU.",
-              Service: "Grounded in the spirit of service, we prioritize the well-being of families by offering them access to essential baby items, embodying the teachings of giving back learned at BYU.",
-              Collaboration: "We believe in the strength of collaboration and partnerships within our community. Drawing from the collaborative ethos emphasized at BYU Marriott, we work together to create a meaningful impact.",
-              Innovation: "We embrace innovation and creativity to continually improve our services. Our education at BYU Marriott has instilled in us the importance of forward-thinking and adapting to new challenges.",
-              Compassion: "We approach our work with empathy and compassion, echoing the values of compassion and understanding promoted at BYU Marriott School.",
-              Community: "We are dedicated to building a sense of community and belonging. Our commitment to community development is influenced by the teachings of community-building principles at BYU Marriott."
-          };
-
-          // Display the description for the clicked value
-          descriptionPlaceholder.innerHTML = descriptions[value];
-      }
+      
     </script>
     <!-- Core theme JS-->
   </body>
@@ -220,7 +190,7 @@
       <!-- Your footer content -->
 
       <!-- Contact Us Section -->
-      <div class="contact-section">
+      <div class="contact-section text-white">
         <h5>Contact Us</h5>
         <p>Email: <a href="mailto:info@weewear.org">info@weewear.org</a></p>
         <p>Address: 123 Wee Street, Babyville, USA</p>
