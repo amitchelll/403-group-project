@@ -3,11 +3,124 @@ const express = require("express");
 
 let app = express();
 
+const multer = require("multer")
+
 let path = require("path");
 
 const port = process.env.PORT || 3000;
 
 const users = [{ username: 'admin', password: 'adminpassword'}];
+
+//beginning of upload photo stuff
+        // Set up storage for uploaded files
+        //npm install express multer ejs
+        const storage = multer.diskStorage({
+            destination: function (req, file, cb) {
+            cb(null, 'public/uploads/');
+            },
+            filename: function (req, file, cb) {
+            cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+            }
+        });
+        
+        const upload = multer({ storage: storage });
+
+        app.set('views', path.join(__dirname, 'views'));
+        
+        // Serve static files from the 'public' directory
+        app.use(express.static(path.join(__dirname, 'public')));
+        
+        app.get('/', (req, res) => {
+            res.render('index');
+        });
+        
+        // Handle file upload
+        app.post('/upload', upload.single('image'), (req, res) => {
+            if (!req.file) {
+            return res.status(400).send('No file uploaded.');
+            }
+        
+            // Access the uploaded file details using req.file
+            const filePath = req.file.path;
+            // Add additional logic here, such as saving the file path to a database
+        
+            res.send('File uploaded successfully.');
+        });
+//end of upload photo stuff
+
+//email them a confirmation of feedback stuff
+        const nodemailer = require('nodemailer');
+        //NEED TO DO NPM INSTALL NODEMAILER
+        // Create a nodemailer transporter
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'pickettelise0@gmail.com', // Your Gmail email address
+                pass: 'Mysharkone123..' // Your Gmail password or an application-specific password
+            }
+        });
+
+        app.post("/submitFeedback", async (req, res) => {
+            const { name, email, message } = req.body;
+
+            // Process the feedback (you can save it to a database, send an email, etc.)
+
+            // Send confirmation email
+            try {
+                const info = await transporter.sendMail({
+                    from: 'pickettelise0@gmail.com', // Your Gmail email address
+                    to: email,
+                    subject: 'Feedback Received',
+                    text: `Dear ${name},\n\nThank you for your feedback!\n\nBest regards,\nThe Wee Wear Team`
+                });
+
+                console.log('Confirmation email sent:', info.response);
+            } catch (error) {
+                console.error('Error sending confirmation email:', error.message);
+            }
+
+            // For demonstration purposes, let's just log the feedback to the console
+            console.log(`New Feedback Received:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
+
+            // Redirect to the home page or a thank you page
+            res.redirect("/");
+        });
+//end of emial confirmation stuff
+
+//donation request stuff
+
+        // Donation request page
+        app.get('/donationRequest', (req, res) => {
+            res.render('donationRequest');
+        });
+
+        // Handle donation request form submission
+        app.post('/donationRequest', (req, res) => {
+            const { donationType, description } = req.body;
+            res.redirect('/donationRequest');
+        });
+//end of donation request
+
+//volunteer form stuff
+        // Volunteer Sign-Up route
+        app.get('/volunteer-signup', (req, res) => {
+            const shift = req.query.shift || 'Not specified'; // Get the shift parameter from the query string
+            res.render('volunteer-signup', { shift });
+        });
+
+        // Handle Volunteer Sign-Up form submission
+        app.post('/volunteer-signup', (req, res) => {
+            // Process the form data and save it to your database or perform necessary actions
+            const name = req.body.name;
+            const email = req.body.email;
+            const shift = req.body.shift; // Assuming you have a shift field in your form
+
+            // Handle the form data as needed
+
+            // For simplicity, just send a confirmation response
+            res.send(`Thank you, ${name}, for signing up for the ${shift} shift!`);
+        });
+//volunteer form stuff end
 
 app.set("view engine", "ejs")
 
