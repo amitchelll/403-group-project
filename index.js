@@ -11,7 +11,6 @@ const port = process.env.PORT || 3000;
 
 const users = [{ username: 'admin', password: 'adminpassword'}];
 
-
 //volunteer form stuff
         // Volunteer Sign-Up route
         app.get("/volunteer", (req, res) => {
@@ -25,7 +24,15 @@ const users = [{ username: 'admin', password: 'adminpassword'}];
 
         // Handle Volunteer Sign-Up form submission
         app.post('/volunteer-signup', (req, res) => {
-            res.render('thankyou');
+            // Process the form data and save it to your database or perform necessary actions
+            const name = req.body.name;
+            const email = req.body.email;
+            const shift = req.body.shift; // Assuming you have a shift field in your form
+
+            // Handle the form data as needed
+
+            // For simplicity, just send a confirmation response
+            res.send(`Thank you, ${name}, for signing up for the ${shift} shift!`);
         });
 //volunteer form stuff end
 
@@ -47,12 +54,12 @@ app.use((err, req, res, next) => {
 const knex = require("knex")({ 
         client: "pg",
         connection: {
-            host: process.env.RDS_HOSTNAME || "babyclothes.c5d3qntj7b7x.us-east-1.rds.amazonaws.com", 
+            host: process.env.RDS_HOSTNAME || "localhost", 
             user: process.env.RDS_USERNAME || "postgres",
             password: process.env.RDS_PASSWORD || "password",
-            database: process.env.RDS_DB_NAME || "postgres",
+            database: process.env.RDS_DB_NAME || "babyclothes",
             port: process.env.RDS_PORT || 5432,
-            //ssl: process.env.DB_SSL ? {rejectUnauthorized: false} : false
+            ssl: process.env.DB_SSL ? {rejectUnauthorized: false} : false
         }
     })
 
@@ -82,15 +89,7 @@ app.get("/thankyou", (req, res) => {
     res.render(path.join(__dirname + "/views/thankyou.ejs"));
 });
 
-app.get("/feedback", (req, res) => {
-    res.render(path.join(__dirname + "/views/feedback.ejs"));
-});
 
-app.post('/submitFeedback', (req, res) => {
-    res.render('thankyou');
-});
-
-app.post("")
 app.get("/createAccount", (req, res) => {
     res.render(path.join(__dirname + "/views/createAccount.ejs"));
 });
