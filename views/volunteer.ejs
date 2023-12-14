@@ -31,33 +31,73 @@
         connected community. Your commitment to service makes a world of
         difference, one tiny outfit at a time!
       </p>
-      <div class="swirling-bee"></div>
-    </section>
+      <p>
+        Orientation: <br /><br />
 
-    <!-- Volunteer Calendar Section -->
-    <section class="volunteer-calendar">
-      <h2>Volunteer Shifts</h2>
-      <!-- Integrated Calendar (You may use a third-party library or implement your own) -->
-      <!-- For simplicity, I'll use a placeholder for the calendar -->
-      <div class="calendar">
-        <!-- Calendar content goes here -->
-        <!-- For each day from Monday to Friday, show two shifts -->
-        <% for (let day = 1; day <= 31; day++) { %> <% const date = new
-        Date(2023, 11, day); %> <% const dayOfWeek = date.getDay(); %> <% if
-        (dayOfWeek >= 1 && dayOfWeek <= 5) { %>
-        <div class="day">
-          <h3><%= date.toDateString() %></h3>
-          <div class="shifts">
-            <button onclick="redirectToSignUpForm('Morning Shift')">
-              Morning Shift
-            </button>
-            <button onclick="redirectToSignUpForm('Afternoon Shift')">
-              Afternoon Shift
-            </button>
-          </div>
-        </div>
-        <% } %> <% } %>
-      </div>
+        New volunteers go through an orientation session to understand the
+        mission, values, and goals of Wee Wear. Volunteers receive an overview
+        of the organization's history, its impact on the community, and how
+        their role contributes to its success. <br /><br />
+        Sign-Up and Scheduling: <br /><br />
+
+        Volunteers access the Wee Wear website and navigate to the volunteer
+        sign-up page. The website displays a calendar with available shifts for
+        the upcoming month. Volunteers select a date and time for their shift
+        based on their availability and preferences. <br /><br />
+        Training: <br /><br />
+
+        Volunteers receive training on their specific roles and
+        responsibilities. Training covers safety protocols, guidelines for
+        interacting with families, and handling donated items. <br /><br />
+        Sorting and Organizing: <br /><br />
+
+        Volunteers assist in sorting and organizing donated baby items. They
+        categorize items such as clothing, toys, and baby gear to ensure
+        efficient distribution. <br /><br />
+        Inventory Management: <br /><br />
+
+        Volunteers may help manage inventory by recording and updating item
+        quantities. They use Wee Wear's system to keep track of available items
+        and ensure accurate records. <br /><br />
+        Assisting Families: <br /><br />
+
+        Volunteers assist families who visit Wee Wear in finding the items they
+        need. They provide a welcoming and supportive environment, answering
+        questions and offering guidance. <br /><br />
+        Event Support: <br /><br />
+
+        Volunteers may be involved in organizing and supporting special events
+        hosted by Wee Wear. Events could include donation drives, community
+        outreach, or awareness campaigns. <br /><br />
+        Feedback and Improvement: <br /><br />
+
+        Volunteers are encouraged to provide feedback on their experiences. Wee
+        Wear values volunteers' insights for continuous improvement and
+        enhancing the overall volunteer experience. <br /><br />
+        Community Engagement: <br /><br />
+
+        Volunteers actively engage with the local community, spreading awareness
+        of Wee Wear's services. They may participate in outreach programs or
+        collaborate with local organizations. <br /><br />
+        Recognition and Appreciation: <br /><br />
+
+        Wee Wear acknowledges and appreciates the contributions of volunteers.
+        Recognition programs, events, or certificates may be provided to express
+        gratitude for their time and effort. <br /><br />
+        Networking: <br /><br />
+
+        Volunteers have opportunities to network with other volunteers and
+        staff. Building a sense of community and camaraderie contributes to a
+        positive and fulfilling volunteer experience. <br /><br />
+        Continuous Involvement: <br /><br />
+
+        Volunteers are encouraged to stay involved and consider long-term
+        commitments. Opportunities for growth within the organization may be
+        available, allowing volunteers to take on leadership roles. By following
+        these steps, Wee Wear ensures that volunteers play a vital role in
+        supporting the organization's mission of providing essential baby items
+        to families in need.
+      </p>
     </section>
 
     <!-- Volunteer Sign-Up Form Section -->
@@ -71,20 +111,120 @@
         <input type="text" id="name" name="name" required />
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
+        <input type="email" id="email" name="email" required /> <br /><br />
 
-        <!-- Add more fields as needed -->
+        <label>Select the location you would like to volunteer at:</label>
+        <div>
+          <input
+            type="radio"
+            id="location_benville"
+            name="location"
+            value="Benville, Arkansas"
+            required
+          />
+          <label for="location_benville">Benville, Arkansas</label>
+        </div>
 
-        <button type="submit">Sign Up</button>
+        <div>
+          <input
+            type="radio"
+            id="location_provo"
+            name="location"
+            value="Provo, Utah"
+            required
+          />
+          <label for="location_provo">Provo, Utah</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            id="location_springville"
+            name="location"
+            value="Springville, Utah"
+            required
+          />
+          <label for="location_springville">Springville, Utah</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            id="location_pleasant_grove"
+            name="location"
+            value="Pleasant Grove, Utah"
+            required
+          />
+          <label for="location_pleasant_grove">Pleasant Grove, Utah</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            id="location_boise"
+            name="location"
+            value="Boise, Idaho"
+            required
+          />
+          <label for="location_boise">Boise, Idaho</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            id="location_frederick"
+            name="location"
+            value="Frederick, Maryland"
+            required
+          />
+          <label for="location_frederick">Frederick, Maryland</label>
+          <br /><br />
+        </div>
+        <label for="volunteerDay"
+          >Select the day you would like to volunteer:</label
+        >
+        <select id="volunteerDay" name="volunteerDay" required>
+          <option value="2023-12-01">December 1, 2023</option>
+          <option value="2023-12-02">December 2, 2023</option>
+          <option value="2023-12-02">December 3, 2023</option>
+          <option value="2023-12-02">December 4, 2023</option>
+          <option value="2023-12-02">December 5, 2023</option>
+          <option value="2023-12-02">December 6, 2023</option>
+          <option value="2023-12-02">December 7, 2023</option>
+          <option value="2023-12-02">December 8, 2023</option>
+          <option value="2023-12-02">December 9, 2023</option>
+          <option value="2023-12-02">December 10, 2023</option>
+          <option value="2023-12-02">December 11, 2023</option>
+          <option value="2023-12-02">December 12, 2023</option>
+          <option value="2023-12-02">December 13, 2023</option>
+          <option value="2023-12-02">December 14, 2023</option>
+          <option value="2023-12-02">December 15, 2023</option>
+          <option value="2023-12-02">December 16, 2023</option>
+          <option value="2023-12-02">December 17, 2023</option>
+          <option value="2023-12-02">December 18, 2023</option>
+          <option value="2023-12-02">December 19, 2023</option>
+          <option value="2023-12-02">December 20, 2023</option>
+          <option value="2023-12-02">December 21, 2023</option>
+          <option value="2023-12-02">December 22, 2023</option>
+          <option value="2023-12-02">December 23, 2023</option>
+          <option value="2023-12-02">December 24, 2023</option>
+          <option value="2023-12-02">December 25, 2023</option>
+          <option value="2023-12-02">December 26, 2023</option>
+          <option value="2023-12-02">December 27, 2023</option>
+          <option value="2023-12-02">December 28, 2023</option>
+          <option value="2023-12-02">December 29, 2023</option>
+          <option value="2023-12-02">December 30, 2023</option>
+          <option value="2023-12-02">December 31, 2023</option>
+          <!-- Add more options for other dates -->
+          <!-- Ensure that you include options up to December 31, 2023 -->
+        </select>
+        <br /><br />
+
+        <label for="shift">Select the shift:</label>
+        <select id="shift" name="shift" required>
+          <option value="morning">Morning Shift</option>
+          <option value="afternoon">Afternoon Shift</option>
+        </select>
       </form>
-    </section>
-
-    <!-- Include your JavaScript and other scripts here -->
-    <script>
-      function redirectToSignUpForm(shift) {
-        // Redirect to the sign-up form with the selected shift
-        window.location.href = `/volunteer-signup?shift=${shift}`;
-      }
-    </script>
   </body>
 </html>

@@ -66,6 +66,10 @@ const users = [{ username: 'admin', password: 'adminpassword'}];
 
 //volunteer form stuff
         // Volunteer Sign-Up route
+        app.get("/volunteer", (req, res) => {
+            res.render(path.join(__dirname + "/views/volunteer.ejs"));
+        });
+
         app.get('/volunteer-signup', (req, res) => {
             const shift = req.query.shift || 'Not specified'; // Get the shift parameter from the query string
             res.render('volunteer-signup', { shift });
