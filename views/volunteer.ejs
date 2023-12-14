@@ -55,7 +55,7 @@
         <!-- Add interactive tableau map with the states we are located in  -->
       </div>
     </section>
-    <br>
+    <br><br>
     <p style="margin-left: 300px; margin-right: 300px;">
       Join our incredible team of volunteers at Wee Wear and be a part of
       something truly meaningful! At Wee Wear, we believe in the power of
@@ -77,13 +77,15 @@
       connected community. Your commitment to service makes a world of
       difference, one tiny outfit at a time!
   </p>
-  <br><br>
+  
 
   <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
       <div class="row gx-4 gx-lg-5 justify-content-center">
         <div class="col-md-6">
-          <form action="/submitFeedback" method="POST">
+          <h2 style="text-align: center;">Volunteer Sign-Up</h2>
+          <br>
+          <form action="/volunteer-signup" method="POST">
             <div class="mb-3">
               <label for="name" class="form-label">Your Name</label>
               <input
@@ -105,149 +107,147 @@
               />
             </div>
             <div class="mb-3">
-              <label for="message" class="form-label">Feedback Message</label>
-              <textarea
-                class="form-control"
-                id="message"
-                name="message"
-                rows="4"
-                required
-              ></textarea>
+              <label>Select the location you would like to volunteer at:</label>
+              <div>
+                <input
+                  type="radio"
+                  id="location_bentonville"
+                  name="location"
+                  value="Bentonville, Arkansas"
+                  required
+                />
+                <label for="location_bentonville">Bentonville, Arkansas</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="location_phoenix"
+                  name="location"
+                  value="Phoenix, Arizona"
+                  required
+                />
+                <label for="location_phoenix">Phoenix, Arizona</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="location_knoxville"
+                  name="location"
+                  value="Knoxville, Tennessee"
+                  required
+                />
+                <label for="location_knoxville">Knoxville, Tennessee</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="location_provo"
+                  name="location"
+                  value="Provo, Utah"
+                  required
+                />
+                <label for="location_provo">Provo, Utah</label>
+              </div>
+      
+              <div>
+                <input
+                  type="radio"
+                  id="location_springville"
+                  name="location"
+                  value="Springville, Utah"
+                  required
+                />
+                <label for="location_springville">Springville, Utah</label>
+              </div>
+      
+              <div>
+                <input
+                  type="radio"
+                  id="location_pleasant_grove"
+                  name="location"
+                  value="Pleasant Grove, Utah"
+                  required
+                />
+                <label for="location_pleasant_grove">Pleasant Grove, Utah</label>
+              </div>
+      
+              <div>
+                <input
+                  type="radio"
+                  id="location_boise"
+                  name="location"
+                  value="Boise, Idaho"
+                  required
+                />
+                <label for="location_boise">Boise, Idaho</label>
+              </div>
+      
+              <div>
+                <input
+                  type="radio"
+                  id="location_frederick"
+                  name="location"
+                  value="Frederick, Maryland"
+                  required
+                />
+                <label for="location_frederick">Frederick, Maryland</label>
+                <br />
+              </div>
             </div>
+              <label for="volunteerDay"
+                >Select the day you would like to volunteer:</label>
+                <br>
+            <select id="volunteerDay" name="volunteerDay" required>
+              <option value="2023-12-01">December 1, 2023</option>
+              <option value="2023-12-02">December 2, 2023</option>
+              <option value="2023-12-02">December 3, 2023</option>
+              <option value="2023-12-02">December 4, 2023</option>
+              <option value="2023-12-02">December 5, 2023</option>
+              <option value="2023-12-02">December 6, 2023</option>
+              <option value="2023-12-02">December 7, 2023</option>
+              <option value="2023-12-02">December 8, 2023</option>
+              <option value="2023-12-02">December 9, 2023</option>
+              <option value="2023-12-02">December 10, 2023</option>
+              <option value="2023-12-02">December 11, 2023</option>
+              <option value="2023-12-02">December 12, 2023</option>
+              <option value="2023-12-02">December 13, 2023</option>
+              <option value="2023-12-02">December 14, 2023</option>
+              <option value="2023-12-02">December 15, 2023</option>
+              <option value="2023-12-02">December 16, 2023</option>
+              <option value="2023-12-02">December 17, 2023</option>
+              <option value="2023-12-02">December 18, 2023</option>
+              <option value="2023-12-02">December 19, 2023</option>
+              <option value="2023-12-02">December 20, 2023</option>
+              <option value="2023-12-02">December 21, 2023</option>
+              <option value="2023-12-02">December 22, 2023</option>
+              <option value="2023-12-02">December 23, 2023</option>
+              <option value="2023-12-02">December 24, 2023</option>
+              <option value="2023-12-02">December 25, 2023</option>
+              <option value="2023-12-02">December 26, 2023</option>
+              <option value="2023-12-02">December 27, 2023</option>
+              <option value="2023-12-02">December 28, 2023</option>
+              <option value="2023-12-02">December 29, 2023</option>
+              <option value="2023-12-02">December 30, 2023</option>
+              <option value="2023-12-02">December 31, 2023</option>
+              <!-- Add more options for other dates -->
+              <!-- Ensure that you include options up to December 31, 2023 -->
+            </select>
+            <br /><br />
+    
+            <label for="shift">Select the shift:</label>
+            <br>
+            <select id="shift" name="shift" required>
+              <option value="morning">Morning Shift</option>
+              <option value="afternoon">Afternoon Shift</option>
+            </select>
+            <br><br>
             <button type="submit" class="btn btn-primary submit-btn-color">
-              Submit Feedback
+              Volunteer!
             </button>
           </form>
         </div>
       </div>
     </div>
   </section>
-
-    <!-- Volunteer Sign-Up Form Section -->
-    <section class="volunteer-signup-form">
-      <h2>Volunteer Sign-Up</h2>
-      <!-- Volunteer Sign-Up Form goes here -->
-      <!-- For simplicity, I'll use a placeholder form -->
-      <form action="/volunteer-signup" method="POST">
-        <!-- Your form fields go here -->
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required />
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required /> <br /><br />
-
-        <label>Select the location you would like to volunteer at:</label>
-        <div>
-          <input
-            type="radio"
-            id="location_benville"
-            name="location"
-            value="Benville, Arkansas"
-            required
-          />
-          <label for="location_benville">Benville, Arkansas</label>
-        </div>
-
-        <div>
-          <input
-            type="radio"
-            id="location_provo"
-            name="location"
-            value="Provo, Utah"
-            required
-          />
-          <label for="location_provo">Provo, Utah</label>
-        </div>
-
-        <div>
-          <input
-            type="radio"
-            id="location_springville"
-            name="location"
-            value="Springville, Utah"
-            required
-          />
-          <label for="location_springville">Springville, Utah</label>
-        </div>
-
-        <div>
-          <input
-            type="radio"
-            id="location_pleasant_grove"
-            name="location"
-            value="Pleasant Grove, Utah"
-            required
-          />
-          <label for="location_pleasant_grove">Pleasant Grove, Utah</label>
-        </div>
-
-        <div>
-          <input
-            type="radio"
-            id="location_boise"
-            name="location"
-            value="Boise, Idaho"
-            required
-          />
-          <label for="location_boise">Boise, Idaho</label>
-        </div>
-
-        <div>
-          <input
-            type="radio"
-            id="location_frederick"
-            name="location"
-            value="Frederick, Maryland"
-            required
-          />
-          <label for="location_frederick">Frederick, Maryland</label>
-          <br /><br />
-        </div>
-        <label for="volunteerDay"
-          >Select the day you would like to volunteer:</label
-        >
-        <select id="volunteerDay" name="volunteerDay" required>
-          <option value="2023-12-01">December 1, 2023</option>
-          <option value="2023-12-02">December 2, 2023</option>
-          <option value="2023-12-02">December 3, 2023</option>
-          <option value="2023-12-02">December 4, 2023</option>
-          <option value="2023-12-02">December 5, 2023</option>
-          <option value="2023-12-02">December 6, 2023</option>
-          <option value="2023-12-02">December 7, 2023</option>
-          <option value="2023-12-02">December 8, 2023</option>
-          <option value="2023-12-02">December 9, 2023</option>
-          <option value="2023-12-02">December 10, 2023</option>
-          <option value="2023-12-02">December 11, 2023</option>
-          <option value="2023-12-02">December 12, 2023</option>
-          <option value="2023-12-02">December 13, 2023</option>
-          <option value="2023-12-02">December 14, 2023</option>
-          <option value="2023-12-02">December 15, 2023</option>
-          <option value="2023-12-02">December 16, 2023</option>
-          <option value="2023-12-02">December 17, 2023</option>
-          <option value="2023-12-02">December 18, 2023</option>
-          <option value="2023-12-02">December 19, 2023</option>
-          <option value="2023-12-02">December 20, 2023</option>
-          <option value="2023-12-02">December 21, 2023</option>
-          <option value="2023-12-02">December 22, 2023</option>
-          <option value="2023-12-02">December 23, 2023</option>
-          <option value="2023-12-02">December 24, 2023</option>
-          <option value="2023-12-02">December 25, 2023</option>
-          <option value="2023-12-02">December 26, 2023</option>
-          <option value="2023-12-02">December 27, 2023</option>
-          <option value="2023-12-02">December 28, 2023</option>
-          <option value="2023-12-02">December 29, 2023</option>
-          <option value="2023-12-02">December 30, 2023</option>
-          <option value="2023-12-02">December 31, 2023</option>
-          <!-- Add more options for other dates -->
-          <!-- Ensure that you include options up to December 31, 2023 -->
-        </select>
-        <br /><br />
-
-        <label for="shift">Select the shift:</label>
-        <select id="shift" name="shift" required>
-          <option value="morning">Morning Shift</option>
-          <option value="afternoon">Afternoon Shift</option>
-        </select>
-      </form>
   </body>
 </html>
