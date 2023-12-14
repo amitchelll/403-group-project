@@ -11,41 +11,6 @@ const port = process.env.PORT || 3000;
 
 const users = [{ username: 'admin', password: 'adminpassword'}];
 
-//email them a confirmation of feedback stuff
-app.get('/feedback', (req, res) => {
-    res.render('feedback');
-});
-        const nodemailer = require('nodemailer');
-        //NEED TO DO NPM INSTALL NODEMAILER
-        // Create a nodemailer transporter
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: 'pickettelise0@gmail.com', // Your Gmail email address
-                pass: 'Mysharkone123..' // Your Gmail password or an application-specific password
-            }
-        });
-
-        app.post("/submitFeedback", async (req, res) => {
-
-            res.redirect("/thankyou");
-        });
-//end of emial confirmation stuff
-
-//donation request stuff
-
-        // Donation request page
-        app.get('/donationRequest', (req, res) => {
-            res.render('donationRequest');
-        });
-
-        // Handle donation request form submission
-        app.post('/donationRequest', (req, res) => {
-            const { donationType, description } = req.body;
-            res.redirect('/donationRequest');
-        });
-//end of donation request
-
 //volunteer form stuff
         // Volunteer Sign-Up route
         app.get("/volunteer", (req, res) => {
