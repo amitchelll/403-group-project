@@ -79,6 +79,50 @@
   </p>
   <br><br>
 
+  <section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-6">
+          <form action="/submitFeedback" method="POST">
+            <div class="mb-3">
+              <label for="name" class="form-label">Your Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Your Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Feedback Message</label>
+              <textarea
+                class="form-control"
+                id="message"
+                name="message"
+                rows="4"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary submit-btn-color">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
     <!-- Volunteer Sign-Up Form Section -->
     <section class="volunteer-signup-form">
       <h2>Volunteer Sign-Up</h2>
