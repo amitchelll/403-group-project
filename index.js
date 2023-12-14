@@ -1,4 +1,5 @@
-
+// Section 001 group 8
+// Cody Nettesheim, Elise Pickett, Alexandra Mitchell, Autumn Eaton
 const express = require("express");
 
 let app = express();
@@ -51,26 +52,10 @@ const knex = require("knex")({
     })
 
 
-// const knex = require("knex")({
-//     client: "pg",
-//     connection: {
-//         host: "localhost",
-//         user: "postgres",
-//         password: "packers20",
-//         database: "practice",
-//         port: 5432
-//     }
-// });
-
 app.get("/", (req, res) => {
     res.render(path.join(__dirname + "/views/index.ejs"));
 });
 
-// app.get("/donateEdit", (req, res) => {
-//     knex.select().from('items').then(items => {
-//         res.render(path.join(__dirname + "/views/donateEdit.ejs"), {myitems: items})
-//     })
-//     });
 
 app.get("/thankyou", (req, res) => {
     res.render(path.join(__dirname + "/views/thankyou.ejs"));
