@@ -129,7 +129,13 @@
   left: 51%; /* Adjust this value for horizontal position */
 }
 
-
+.submit-btn-color {
+  background-color:#FFC008 !important;
+  border-color: #FFC008 !important;
+  display: block !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+}
 
 
 body {
