@@ -17,22 +17,9 @@ const users = [{ username: 'admin', password: 'adminpassword'}];
             res.render(path.join(__dirname + "/views/volunteer.ejs"));
         });
 
-        app.get('/volunteer-signup', (req, res) => {
-            const shift = req.query.shift || 'Not specified'; // Get the shift parameter from the query string
-            res.render('volunteer-signup', { shift });
-        });
-
         // Handle Volunteer Sign-Up form submission
         app.post('/volunteer-signup', (req, res) => {
-            // Process the form data and save it to your database or perform necessary actions
-            const name = req.body.name;
-            const email = req.body.email;
-            const shift = req.body.shift; // Assuming you have a shift field in your form
-
-            // Handle the form data as needed
-
-            // For simplicity, just send a confirmation response
-            res.send(`Thank you, ${name}, for signing up for the ${shift} shift!`);
+            res.render('thankyou')
         });
 //volunteer form stuff end
 
@@ -89,6 +76,17 @@ app.get("/thankyou", (req, res) => {
     res.render(path.join(__dirname + "/views/thankyou.ejs"));
 });
 
+app.get("/feedback", (req, res) => {
+    res.render(path.join(__dirname + "/views/feedback.ejs"));
+});
+
+app.get("/submitFeedback", (req, res) => {
+    res.render('thankyou')
+});
+
+app.post("/submitFeedback", (req, res) => {
+    res.render('thankyou')
+});
 
 app.get("/createAccount", (req, res) => {
     res.render(path.join(__dirname + "/views/createAccount.ejs"));
