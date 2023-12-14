@@ -120,13 +120,13 @@
 .move-up {
   position: absolute;
   top: 50%; /* Adjust this value for the desired vertical position */
-  left: -10%; /* Adjust this value for horizontal position */
+  right: 51%; /* Adjust this value for horizontal position */
 }
 
 .move-up2 {
   position: absolute;
   top: 50%; /* Adjust this value for the desired vertical position */
-  left: 45%; /* Adjust this value for horizontal position */
+  left: 51%; /* Adjust this value for horizontal position */
 }
 
 
