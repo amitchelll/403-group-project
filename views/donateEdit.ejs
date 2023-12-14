@@ -11,7 +11,9 @@
    <form action="/donateEdit" method="POST">
      <fieldset style="width: 0px;">
        <legend>Edit a Donation:</legend>
-       <input type="hidden" id="item_title" name="item_title" value="<%=myitems[0].item_title %>">
+       <input type="hidden" id="item_id" name="item_id" value="<%=myitems[0].item_id %>">
+
+       <input type="text" id="item_title" name="item_title" value="<%=myitems[0].item_title %>">
        <label for="description">Description:</label>
        <input type="text" id="description" name="description" value="<%=myitems[0].description %>">
        <br><br>
