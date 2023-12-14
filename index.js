@@ -217,7 +217,9 @@ app.post("/donateAdd", (req, res)=> {
  });
 
 app.get("/donateEdit/:id", (req, res)=> {
-    knex.select("item_title",
+    knex.select(
+        "item_id",
+        "item_title",
           "description",
           "quantity",
           "category").from("items").where("item_id", req.params.id).then(items => {
