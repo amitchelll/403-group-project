@@ -86,29 +86,29 @@ app.use((err, req, res, next) => {
     res.status(500).send('Internal Server Error');
 });
 
-// const knex = require("knex")({ // this is the database
-//         client: "pg",
-//         connection: {
-//             host: process.env.RDS_HOSTNAME || "babyclothes.c5d3qntj7b7x.us-east-1.rds.amazonaws.com", 
-//             user: process.env.RDS_USERNAME || "postgres",
-//             password: process.env.RDS_PASSWORD || "password",
-//             database: process.env.RDS_DB_NAME || "postgres",
-//             port: process.env.RDS_PORT || 5432,
-//             //ssl: process.env.DB_SSL ? {rejectUnauthorized: false} : false
-//         }
-//     })
+const knex = require("knex")({ 
+        client: "pg",
+        connection: {
+            host: process.env.RDS_HOSTNAME || "babyclothes.c5d3qntj7b7x.us-east-1.rds.amazonaws.com", 
+            user: process.env.RDS_USERNAME || "postgres",
+            password: process.env.RDS_PASSWORD || "password",
+            database: process.env.RDS_DB_NAME || "postgres",
+            port: process.env.RDS_PORT || 5432,
+            //ssl: process.env.DB_SSL ? {rejectUnauthorized: false} : false
+        }
+    })
 
 
-const knex = require("knex")({
-    client: "pg",
-    connection: {
-        host: "localhost",
-        user: "postgres",
-        password: "packers20",
-        database: "practice",
-        port: 5432
-    }
-});
+// const knex = require("knex")({
+//     client: "pg",
+//     connection: {
+//         host: "localhost",
+//         user: "postgres",
+//         password: "packers20",
+//         database: "practice",
+//         port: 5432
+//     }
+// });
 
 app.get("/", (req, res) => {
     res.render(path.join(__dirname + "/views/index.ejs"));
