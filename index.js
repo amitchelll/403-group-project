@@ -12,6 +12,9 @@ const port = process.env.PORT || 3000;
 const users = [{ username: 'admin', password: 'adminpassword'}];
 
 //email them a confirmation of feedback stuff
+app.get('/feedback', (req, res) => {
+    res.render('feedback');
+});
         const nodemailer = require('nodemailer');
         //NEED TO DO NPM INSTALL NODEMAILER
         // Create a nodemailer transporter
@@ -24,29 +27,8 @@ const users = [{ username: 'admin', password: 'adminpassword'}];
         });
 
         app.post("/submitFeedback", async (req, res) => {
-            const { name, email, message } = req.body;
 
-            // Process the feedback (you can save it to a database, send an email, etc.)
-
-            // Send confirmation email
-            try {
-                const info = await transporter.sendMail({
-                    from: 'pickettelise0@gmail.com', // Your Gmail email address
-                    to: email,
-                    subject: 'Feedback Received',
-                    text: `Dear ${name},\n\nThank you for your feedback!\n\nBest regards,\nThe Wee Wear Team`
-                });
-
-                console.log('Confirmation email sent:', info.response);
-            } catch (error) {
-                console.error('Error sending confirmation email:', error.message);
-            }
-
-            // For demonstration purposes, let's just log the feedback to the console
-            console.log(`New Feedback Received:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
-
-            // Redirect to the home page or a thank you page
-            res.redirect("/");
+            res.redirect("/thankyou");
         });
 //end of emial confirmation stuff
 
@@ -137,6 +119,10 @@ app.get("/donateEdit", (req, res) => {
         res.render(path.join(__dirname + "/views/donateEdit.ejs"), {myitems: items})
     })
     });
+
+app.get("/thankyou", (req, res) => {
+    res.render(path.join(__dirname + "/views/thankyou.ejs"));
+});
 
 
 app.get("/createAccount", (req, res) => {
