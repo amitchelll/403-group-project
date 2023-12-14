@@ -19,7 +19,6 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/mystyles.css" rel="stylesheet" />
-
   </head>
   <body>
     <!-- Navigation-->
@@ -57,28 +56,165 @@
     </nav>
     <!-- Header-->
     <header class="bg-yellow py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-black">
-                <h1 class="display-4 fw-bolder">Wee Wear</h1>
-                <p class="lead fw-normal text-black-50 mb-0">
-                    Browse Our Collection of Donated Baby Items for Free!
-                </p><br>
-                <a class="btn btn-outline-dark mt-auto" href="/browse">Browse</a>
-                <a class="btn btn-outline-dark mt-auto" href="/login">Donate</a>
-            </div>
+      <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-black">
+          <h1 class="display-4 fw-bolder">Wee Wear</h1>
+          <p class="lead fw-normal text-black-50 mb-0">
+            Browse Our Collection of Donated Baby Items for Free!
+          </p>
+          <br />
+          <a class="btn btn-outline-dark mt-auto" href="/browse">Browse</a>
+          <a class="btn btn-outline-dark mt-auto" href="/login">Donate</a>
         </div>
+      </div>
     </header>
+    <!-- Wee Wear's Story and Purpose -->
+    <div class="container my-5">
+      <h2>Our Story: Wee Wear's Humble Beginnings</h2>
+      <button
+        class="btn btn-dark"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#weeWearStory"
+        aria-expanded="false"
+        aria-controls="weeWearStory"
+      >
+        Read Our Story
+      </button>
+      <div class="collapse mt-3" id="weeWearStory">
+        <p>
+          In the heart of a small town, where compassion and community spirit
+          intertwine, Wee Wear was born out of a simple idea — to provide a
+          helping hand to families in need and create a positive impact on the
+          lives of little ones. <br /><br />
+          It all began when a group of friends, each with a shared passion for
+          making a difference, noticed the challenges faced by families striving
+          to provide essential items for their children. Inspired by the belief
+          that every child deserves warmth, comfort, and a chance to grow with
+          dignity, they decided to channel their collective energy into creating
+          Wee Wear. <br /><br />
+          Starting from a modest garage filled with goodwill and determination,
+          Wee Wear embarked on a mission to collect gently-used clothing, toys,
+          and other essentials for infants and toddlers. The community responded
+          with open hearts, contributing not only items but also their time and
+          support. <br /><br />
+          What started as a small initiative quickly blossomed into a thriving
+          hub of generosity, touching the lives of families far and wide. As the
+          Wee Wear community grew, so did the spectrum of support — from local
+          businesses offering a helping hand to volunteers dedicating their
+          weekends to sort through donations. <br /><br />
+          Today, Wee Wear stands as a testament to the incredible impact that
+          compassion and collaboration can have on a community. It's more than a
+          donation center; it's a symbol of kindness, resilience, and the belief
+          that even the smallest act of generosity can make a world of
+          difference in the lives of our little ones. <br /><br />
+          Join us at Wee Wear as we continue to weave the threads of hope,
+          warmth, and love, creating a brighter future for the tiniest members
+          of our community. Together, we can make a difference, one small step
+          at a time.
+        </p>
+      </div>
+      <!-- Add this element where you want the bee to appear -->
+      <div id="swirlingBee">
+        <img src="path/to/your/bee-image.png" alt="Swirling Bee" />
+      </div>
+      <!-- end bee stuff -->
+      <h2 class="mt-5">Our Purpose: Wee Wear Mission Statement</h2>
+      <button
+        class="btn btn-dark"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#weeWearPurpose"
+        aria-expanded="false"
+        aria-controls="weeWearPurpose"
+      >
+        Our Mission Statement
+      </button>
+      <div class="collapse mt-3" id="weeWearPurpose">
+        <!-- Mission Values Section -->
+        <section class="py-5" id="missionValues">
+          <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5">
+              <div class="col-md-6 mb-4">
+                <button onclick="showDescription('Integrity')">
+                  Integrity
+                </button>
+                <button onclick="showDescription('Service')">Service</button>
+                <button onclick="showDescription('Collaboration')">
+                  Collaboration
+                </button>
+                <button onclick="showDescription('Innovation')">
+                  Innovation
+                </button>
+                <button onclick="showDescription('Compassion')">
+                  Compassion
+                </button>
+                <button onclick="showDescription('Community')">
+                  Community
+                </button>
+              </div>
+              <div class="col-md-6 mb-4">
+                <!-- Placeholder for the description -->
+                <div id="descriptionPlaceholder"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Where are we located? -->
+    <section class="py-5 bg-warning">
+      <div class="container">
+        <h2 class="text-center text-white">Where are we located?</h2>
+        <p></p>
+        <!-- Add interactive tableau map with the states we are located in  -->
+      </div>
+    </section>
 
     <!-- Footer-->
     <footer class="py-5 bg-warning">
       <div class="container">
-        <p class="m-0 text-center text-white">
-          Team 1-8
-        </p>
+        <p class="m-0 text-center text-white">Team 1-8</p>
       </div>
     </footer>
     <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    >
+      function showDescription(value) {
+          // Get the placeholder element
+          var descriptionPlaceholder = document.getElementById('descriptionPlaceholder');
+
+          // Clear previous content
+          descriptionPlaceholder.innerHTML = '';
+
+          // Define descriptions for each value
+          var descriptions = {
+              Integrity: "We uphold the highest standards of honesty, transparency, and ethical conduct, reflecting the principles taught in the Marriott School program at BYU.",
+              Service: "Grounded in the spirit of service, we prioritize the well-being of families by offering them access to essential baby items, embodying the teachings of giving back learned at BYU.",
+              Collaboration: "We believe in the strength of collaboration and partnerships within our community. Drawing from the collaborative ethos emphasized at BYU Marriott, we work together to create a meaningful impact.",
+              Innovation: "We embrace innovation and creativity to continually improve our services. Our education at BYU Marriott has instilled in us the importance of forward-thinking and adapting to new challenges.",
+              Compassion: "We approach our work with empathy and compassion, echoing the values of compassion and understanding promoted at BYU Marriott School.",
+              Community: "We are dedicated to building a sense of community and belonging. Our commitment to community development is influenced by the teachings of community-building principles at BYU Marriott."
+          };
+
+          // Display the description for the clicked value
+          descriptionPlaceholder.innerHTML = descriptions[value];
+      }
+    </script>
     <!-- Core theme JS-->
   </body>
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <!-- Your footer content -->
+
+      <!-- Contact Us Section -->
+      <div class="contact-section">
+        <h5>Contact Us</h5>
+        <p>Email: <a href="mailto:info@weewear.org">info@weewear.org</a></p>
+        <p>Address: 123 Wee Street, Babyville, USA</p>
+      </div>
+    </div>
+  </footer>
 </html>

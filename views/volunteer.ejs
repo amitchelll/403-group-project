@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Include your meta tags, title, and CSS links here -->
+    <link rel="stylesheet" href="path/to/your/bee-css-file.css" />
+  </head>
+  <body>
+    <!-- Rest of your HTML content -->
+
+    <!-- Volunteer Information Section -->
+    <section class="volunteer-info">
+      <h2>Volunteer Information</h2>
+      <p>
+        Join our incredible team of volunteers at Wee Wear and be a part of
+        something truly meaningful! At Wee Wear, we believe in the power of
+        community and the impact of collective efforts to support families in
+        need. <br /><br />
+        As a volunteer, you'll have the opportunity to contribute to the
+        well-being of families by assisting in various aspects of our donation
+        center. Whether you're organizing donated items, helping families find
+        the perfect baby essentials, or contributing to our community events,
+        your time and energy make a real difference. <br /><br />
+        We provide a flexible volunteering schedule with morning and afternoon
+        shifts available Monday through Friday. Our integrated calendar makes
+        signing up for shifts a breeze, allowing you to choose the dates and
+        times that suit your availability. Plus, our team is always there to
+        support you and make your volunteering experience enjoyable and
+        rewarding. <br /><br />
+        Join Wee Wear's volunteer community today and be a part of our mission
+        to create a positive impact on families and build a stronger, more
+        connected community. Your commitment to service makes a world of
+        difference, one tiny outfit at a time!
+      </p>
+      <div class="swirling-bee"></div>
+    </section>
+
+    <!-- Volunteer Calendar Section -->
+    <section class="volunteer-calendar">
+      <h2>Volunteer Shifts</h2>
+      <!-- Integrated Calendar (You may use a third-party library or implement your own) -->
+      <!-- For simplicity, I'll use a placeholder for the calendar -->
+      <div class="calendar">
+        <!-- Calendar content goes here -->
+        <!-- For each day from Monday to Friday, show two shifts -->
+        <% for (let day = 1; day <= 31; day++) { %> <% const date = new
+        Date(2023, 11, day); %> <% const dayOfWeek = date.getDay(); %> <% if
+        (dayOfWeek >= 1 && dayOfWeek <= 5) { %>
+        <div class="day">
+          <h3><%= date.toDateString() %></h3>
+          <div class="shifts">
+            <button onclick="redirectToSignUpForm('Morning Shift')">
+              Morning Shift
+            </button>
+            <button onclick="redirectToSignUpForm('Afternoon Shift')">
+              Afternoon Shift
+            </button>
+          </div>
+        </div>
+        <% } %> <% } %>
+      </div>
+    </section>
+
+    <!-- Volunteer Sign-Up Form Section -->
+    <section class="volunteer-signup-form">
+      <h2>Volunteer Sign-Up</h2>
+      <!-- Volunteer Sign-Up Form goes here -->
+      <!-- For simplicity, I'll use a placeholder form -->
+      <form action="/volunteer-signup" method="POST">
+        <!-- Your form fields go here -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <!-- Add more fields as needed -->
+
+        <button type="submit">Sign Up</button>
+      </form>
+    </section>
+
+    <!-- Include your JavaScript and other scripts here -->
+    <script>
+      function redirectToSignUpForm(shift) {
+        // Redirect to the sign-up form with the selected shift
+        window.location.href = `/volunteer-signup?shift=${shift}`;
+      }
+    </script>
+  </body>
+</html>

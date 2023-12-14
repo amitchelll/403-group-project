@@ -61,10 +61,17 @@
           <h1 class="display-4 fw-bolder">Thank You for Claiming!</h1>
           <p class="lead fw-normal text-black-50 mb-0"></p>
           <br />
+          <label for="shippingOption">Choose Delivery Option:</label>
+          <select id="shippingOption" name="shippingOption">
+            <option value="shipping">Shipping</option>
+            <option value="pickup">Pickup</option>
+          </select>
+          <br />
+          <button onclick="displayMessage()">Submit</button>
+          <p id="message"></p>
         </div>
       </div>
     </header>
-
 
     <!-- Footer-->
     <footer class="py-5 bg-warning">
@@ -75,5 +82,22 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
+    <!-- shipping or pickup option -->
+    <script>
+      function displayMessage() {
+        const shippingOption = document.getElementById("shippingOption").value;
+        const messageElement = document.getElementById("message");
+
+        if (shippingOption === "shipping") {
+          messageElement.textContent =
+            "Your order will be shipped to your address.";
+        } else if (shippingOption === "pickup") {
+          messageElement.textContent =
+            "You have chosen the pickup option. Please pick up your order at our location.";
+        } else {
+          messageElement.textContent = "Invalid option selected.";
+        }
+      }
+    </script>
   </body>
 </html>
