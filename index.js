@@ -11,43 +11,6 @@ const port = process.env.PORT || 3000;
 
 const users = [{ username: 'admin', password: 'adminpassword'}];
 
-//beginning of upload photo stuff
-        // Set up storage for uploaded files
-        //npm install express multer ejs
-        const storage = multer.diskStorage({
-            destination: function (req, file, cb) {
-            cb(null, 'public/uploads/');
-            },
-            filename: function (req, file, cb) {
-            cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-            }
-        });
-        
-        const upload = multer({ storage: storage });
-
-        app.set('views', path.join(__dirname, 'views'));
-        
-        // Serve static files from the 'public' directory
-        app.use(express.static(path.join(__dirname, 'public')));
-        
-        app.get('/', (req, res) => {
-            res.render('index');
-        });
-        
-        // Handle file upload
-        app.post('/upload', upload.single('image'), (req, res) => {
-            if (!req.file) {
-            return res.status(400).send('No file uploaded.');
-            }
-        
-            // Access the uploaded file details using req.file
-            const filePath = req.file.path;
-            // Add additional logic here, such as saving the file path to a database
-        
-            res.send('File uploaded successfully.');
-        });
-//end of upload photo stuff
-
 //email them a confirmation of feedback stuff
         const nodemailer = require('nodemailer');
         //NEED TO DO NPM INSTALL NODEMAILER
