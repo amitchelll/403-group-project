@@ -202,13 +202,14 @@ app.post("/donateAdd", (req, res)=> {
    })
  });
 
-app.get("/donateEdit/:id", (req, res)=> {
-    knex.select(
-        "item_id",
-        "item_title",
+
+ app.get("/donateEdit/:id", (req, res)=> {
+    knex.select("item_id",
+          "item_title",
           "description",
-          "quantity",
-          "category").from("items").where("item_id", req.params.id).then(items => {
+          "category",
+          "quantity")
+          .from("items").where("item_id", req.params.id).then(items => {
     res.render("donateEdit", {myitems: items});
    }).catch( err => {
       console.log(err);
@@ -218,14 +219,45 @@ app.get("/donateEdit/:id", (req, res)=> {
 
  app.post("/donateEdit", (req, res)=> {
     knex("items").where("item_id", parseInt(req.body.item_id)).update({
-    item_title: req.body.item_title,
-    description: req.body.description,
-    quantity: req.body.quantity,
-    category: req.body.category})
-    .then(myitems => {
-      res.redirect("/donateFind");
+        item_title: req.body.item_title,
+        description: req.body.description,
+        category: req.body.category,
+        quantity: req.body.quantity
+   }).then(myitems => {
+      res.redirect("/");
    })
  });
+
+
+
+
+
+
+
+// app.get("/donateEdit/:id", (req, res)=> {
+//     knex.select(
+//         "item_id",
+//         "item_title",
+//           "description",
+//           "quantity",
+//           "category").from("items").where("item_id", req.params.id).then(items => {
+//     res.render("donateEdit", {myitems: items});
+//    }).catch( err => {
+//       console.log(err);
+//       res.status(500).json({err});
+//    });
+// });
+
+//  app.post("/donateEdit", (req, res)=> {
+//     knex("items").where("item_id", parseInt(req.body.item_id)).update({
+//     item_title: req.body.item_title,
+//     description: req.body.description,
+//     quantity: req.body.quantity,
+//     category: req.body.category})
+//     .then(myitems => {
+//       res.redirect("/donateFind");
+//    })
+//  });
 
  app.post("/donateDelete/:id", (req, res) => {
     knex("items").where("item_id",req.params.id).del().then( myitems => {
